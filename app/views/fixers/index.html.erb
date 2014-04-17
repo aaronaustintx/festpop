@@ -22,7 +22,7 @@
         most recently <%= time_ago_in_words fixer.current_sign_in_at %> ago.
       </td>
       <td class="admin">
-        <% if current_fixer.superadmin? %>
+        <% if current_fixer.superadmin? && current_fixer != fixer %>
           <%= fixer.active? ? link_to('deactivate', deactivate_fixer_path(fixer), :method => :put) : link_to('activate', activate_fixer_path(fixer), :method => :put) %>
         <% end %>
       </td>

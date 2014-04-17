@@ -8,11 +8,31 @@
 </head>
 <body>
 
-<div id="login_stuff">
+<div id="fixer_login" class="fixer login">
   <% if current_fixer %>
     <%= link_to current_fixer.email, root_url %>
     <%= link_to 'sign out', destroy_fixer_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to 'admin log in', new_fixer_session_path %>
   <% end %>
+</div>
+
+<div id="fan_login" class="fan login">
+  <% if current_fan %>
+    <%= link_to current_fan.email, root_url %>
+    <%= link_to 'sign out', destroy_fan_session_path, :method => :delete %>
+  <% else %>
+    <%= link_to 'fan log in', new_fan_session_path %>
+  <% end %>
+</div>
+<%= link_to 'Fixers', fixers_path %>
+
+<div class="notice">
+  <%= notice %>
+</div>
+
+<div class="alert">
+  <%= alert %>
 </div>
 
 <%= yield %>
