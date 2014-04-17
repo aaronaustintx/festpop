@@ -22,6 +22,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+# suppress asset serving messages from log
+gem 'quiet_assets', group: :development
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
@@ -40,3 +42,9 @@ gem 'debugger', group: [:development, :test]
 
 # authentication framework
 gem 'devise'
+
+# nil-checking utility
+gem 'andand'
+
+# file uploads
+gem 'carrierwave'

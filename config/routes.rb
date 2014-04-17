@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  resources :festivals
+
   devise_for :fans
   devise_for :fixers
+  
+  resources :fixers, :only => :index do
+    member do
+      put :activate
+      put :deactivate
+    end
+  end
   root to: "festivals#browse"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

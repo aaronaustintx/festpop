@@ -1,0 +1,31 @@
+<table>
+  <% @fixers.each do |fixer| %>
+    <tr id="<%= dom_id fixer %>">
+      <td>
+        <% if fixer.superadmin? %>
+          (superadmin)
+        <% end %>
+      </td>
+      <td class="email">
+        <%= fixer.email %>
+      </td>
+      <td class="name">
+        <%= fixer.name %>
+      </td>
+      <td>
+        logged in <%= pluralize fixer.sign_in_count, 'time' %>
+      </td>
+      <td class="age">
+        since joining <%= time_ago_in_words(fixer.created_at) %> ago;
+      </td>
+      <td>
+        most recently <%= time_ago_in_words fixer.current_sign_in_at %> ago.
+      </td>
+      <td class="admin">
+        <% if current_fixer.superadmin? %>
+          <%= fixer.active? ? link_to('deactivate', deactivate_fixer_path(fixer), :method => :put) : link_to('activate', activate_fixer_path(fixer), :method => :put) %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
