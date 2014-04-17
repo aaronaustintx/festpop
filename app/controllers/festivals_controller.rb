@@ -71,7 +71,7 @@ class FestivalsController < ApplicationController
       @festival = Festival.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Never trust parameters from the scary internet, only allow the white list through. ?? why is that?
     def festival_params
       params.require(:festival).permit(:name, :start_date, :end_date)
     end
