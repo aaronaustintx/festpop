@@ -1,0 +1,11 @@
+<% @festivals.each do |festival| %>
+  <%= div_for festival do %>
+    <%= div_for festival, :name do %>
+      <%= festival.name %>
+    <% end %>
+    
+    <%= div_for festival, :dates do %>
+      <%= festival.start_date.strftime("%m/%d") %> - <%= festival.end_date.strftime("%m/%d") %>
+    <% end %>
+  <% end %>
+<% end %>
